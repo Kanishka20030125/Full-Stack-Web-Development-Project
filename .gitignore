@@ -1,0 +1,22 @@
+# Visual Studio / .NET Core build outputs
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache files
+.vs/
+*.user
+*.suo
+
+# Rider files
+.idea/
+
+# User-specific files
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+
+# Rider cache
+// ReSharper disable all
