@@ -1,4 +1,4 @@
-<h2>Add New Employee</h2>
+<h2>Edit Employee</h2>
 
 <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
 
@@ -23,7 +23,7 @@
   </mat-form-field>
 
   <div class="form-actions">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid">Save Employee</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid">Update Employee</button>
     <a mat-stroked-button routerLink="/employees">Cancel</a>
   </div>
 </form>

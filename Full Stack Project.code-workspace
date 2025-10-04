@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "backend/DepartmentAPI"
+		},
+		{
+			"path": "backend/Employee.API"
+		}
+	],
+	"settings": {}
+}

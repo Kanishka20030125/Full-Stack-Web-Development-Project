@@ -1,0 +1,41 @@
+.department-container {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 900px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.full-width-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th.mat-header-cell {
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 500;
+}
+
+tr.mat-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+button[mat-raised-button] {
+  font-weight: 500;
+  text-transform: none;
+}

@@ -1,7 +1,6 @@
-<h2>Add New Department</h2>
+<h2>Edit Department</h2>
 
 <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()" class="department-form">
-
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
     <input matInput formControlName="name" required>
@@ -13,7 +12,7 @@
   </mat-form-field>
 
   <div class="form-actions">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!departmentForm.valid">Save Department</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!departmentForm.valid">Update Department</button>
     <a mat-stroked-button routerLink="/departments">Cancel</a>
   </div>
 </form>
