@@ -36,12 +36,12 @@ Full Stack Project/
 │       └── ...
 ├── frontend/
 │   ├── angular-ui/         # Angular Implementation
-│   │   ├── src/
-│   │   └── ...
-│   └── react-ui/          # React Implementation
-│       ├── src/
-│       └── ...
-└── database_scripts/       # Database initialization scripts
+    │   ├── src/
+    │   └── ...
+    └── react-ui/          # React Implementation
+        ├── src/
+        └── ...
+
 ```
 
 ## Prerequisites
