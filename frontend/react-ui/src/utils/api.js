@@ -1,12 +1,19 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5263/api';
-
-const api = axios.create({
-  baseURL: BASE_URL,
+export const employeeApi = axios.create({
+  baseURL: 'http://localhost:5263',  // Direct URL without /api
   headers: {
     'Content-Type': 'application/json',
+    'Accept': 'application/json'
   },
+  withCredentials: true
 });
 
-export default api;
+export const departmentApi = axios.create({
+  baseURL: 'http://localhost:8082',  // Java Spring Boot backend
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  withCredentials: true
+});

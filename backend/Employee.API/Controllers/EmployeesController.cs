@@ -17,18 +17,26 @@ namespace Employee.API.Controllers
             _context = context;
         }
 
-        // GET: api/Employees
+        /// <summary>
+        /// Retrieves the list of all employees.
+        /// </summary>
+        /// <remarks>
+        /// Returns an array of employee objects. Supports reading all employee records.
+        /// </remarks>
+        /// <returns>List of employees</returns>
         [HttpGet]
-        // Use the fully qualified name here
         public async Task<ActionResult<IEnumerable<Models.Employee>>> GetEmployees()
         {
             return await _context.Employees.ToListAsync();
         }
 
-        // GET: api/Employees/5
-        [HttpGet("{id}")]
-        // Use the fully qualified name here
-        public async Task<ActionResult<Models.Employee>> GetEmployee(int id)
+    /// <summary>
+    /// Retrieves a single employee by ID.
+    /// </summary>
+    /// <param name="id">Employee identifier</param>
+    /// <returns>Employee object or 404 if not found</returns>
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Models.Employee>> GetEmployee(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
 
@@ -40,10 +48,14 @@ namespace Employee.API.Controllers
             return employee;
         }
 
-        // PUT: api/Employees/5
-        [HttpPut("{id}")]
-        // Use the fully qualified name for the parameter type
-        public async Task<IActionResult> PutEmployee(int id, Models.Employee employee)
+    /// <summary>
+    /// Updates an existing employee.
+    /// </summary>
+    /// <param name="id">Employee identifier</param>
+    /// <param name="employee">Employee object with updated fields</param>
+    /// <returns>204 No Content on success, 400 if id mismatch, 404 if not found</returns>
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutEmployee(int id, Models.Employee employee)
         {
             if (id != employee.Id)
             {
@@ -71,10 +83,13 @@ namespace Employee.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Employees
-        [HttpPost]
-        // Use the fully qualified name for the parameter type and return type
-        public async Task<ActionResult<Models.Employee>> PostEmployee(Models.Employee employee)
+    /// <summary>
+    /// Creates a new employee.
+    /// </summary>
+    /// <param name="employee">Employee object to create</param>
+    /// <returns>201 Created with location header</returns>
+    [HttpPost]
+    public async Task<ActionResult<Models.Employee>> PostEmployee(Models.Employee employee)
         {
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
@@ -83,9 +98,13 @@ namespace Employee.API.Controllers
             return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
         }
 
-        // DELETE: api/Employees/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(int id)
+    /// <summary>
+    /// Deletes an employee by ID.
+    /// </summary>
+    /// <param name="id">Employee identifier</param>
+    /// <returns>204 No Content on success or 404 if not found</returns>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteEmployee(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
             if (employee == null)

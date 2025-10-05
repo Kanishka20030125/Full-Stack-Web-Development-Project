@@ -1,9 +1,9 @@
-import api from '../utils/api';
+import { departmentApi } from '../utils/api';
 
 export const departmentService = {
-  getAll: () => api.get('/departments'),
-  getById: (id) => api.get(`/departments/${id}`),
-  create: (department) => api.post('/departments', department),
-  update: (id, department) => api.put(`/departments/${id}`, department),
-  delete: (id) => api.delete(`/departments/${id}`),
+  getAll: () => departmentApi.get('/api/departments'),
+  getById: (id) => departmentApi.get(`/api/departments/${id}`),
+  create: (department) => departmentApi.post('/api/departments', department),
+  update: (id, department) => departmentApi.put(`/api/departments/${id}`, department),
+  delete: (id) => departmentApi.delete(`/api/departments/${id}`),
 };

@@ -1,22 +1,24 @@
 import React from 'react';
+import { AppBar, Toolbar, Typography, Button, Container, Box } from '@mui/material';
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-      <div className="container">
-        <a className="navbar-brand" href="#">EMS</a>
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" href="/employees">Employees</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/departments">Departments</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <AppBar position="static" color="primary" elevation={3} sx={{ mb: 3 }}>
+      <Container maxWidth="lg">
+        <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Typography variant="h6" component="div" sx={{ fontWeight: 700 }}>
+              EMS
+            </Typography>
+          </Box>
+
+          <Box>
+            <Button color="inherit" href="/employees">Employees</Button>
+            <Button color="inherit" href="/departments">Departments</Button>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 

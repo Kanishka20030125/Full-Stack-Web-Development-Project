@@ -11,9 +11,13 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:4200") // The origin of your Angular app
-                                .AllowAnyHeader()
-                                .AllowAnyMethod();
+                          policy.WithOrigins(
+                              "http://localhost:4200", // Angular app
+                              "http://localhost:5173"  // React app
+                          )
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .AllowCredentials();
                       });
 });
 // *** END OF CORS CONFIGURATION (STEP 1) ***
@@ -24,7 +28,22 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    // Include XML comments (generated from project) in Swagger UI
+    var xmlFile = System.IO.Path.ChangeExtension(System.Reflection.Assembly.GetExecutingAssembly().Location, ".xml");
+    if (System.IO.File.Exists(xmlFile))
+    {
+        options.IncludeXmlComments(xmlFile);
+    }
+
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Employee API",
+        Version = "v1",
+        Description = "CRUD API for managing employees"
+    });
+});
 
 var app = builder.Build();
 

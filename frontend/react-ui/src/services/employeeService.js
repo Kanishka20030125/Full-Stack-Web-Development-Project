@@ -1,9 +1,9 @@
-import api from '../utils/api';
+import { employeeApi } from '../utils/api';
 
 export const employeeService = {
-  getAll: () => api.get('/Employees'),
-  getById: (id) => api.get(`/Employees/${id}`),
-  create: (employee) => api.post('/Employees', employee),
-  update: (id, employee) => api.put(`/Employees/${id}`, employee),
-  delete: (id) => api.delete(`/Employees/${id}`),
+  getAll: () => employeeApi.get('/api/Employees'),
+  getById: (id) => employeeApi.get(`/api/Employees/${id}`),
+  create: (employee) => employeeApi.post('/api/Employees', employee),
+  update: (id, employee) => employeeApi.put(`/api/Employees/${id}`, employee),
+  delete: (id) => employeeApi.delete(`/api/Employees/${id}`),
 };

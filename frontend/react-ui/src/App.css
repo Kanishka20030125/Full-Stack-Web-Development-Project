@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App wide polish */
+body {
+  font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  color: #222;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-surface {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(42, 61, 88, 0.08);
+}
+
+.muted {
+  color: #6b7280;
+}
+
+/* Center the main content on smaller screens */
+@media (max-width: 900px) {
+  #root { padding: 1rem; }
+}
